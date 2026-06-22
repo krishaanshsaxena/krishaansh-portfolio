@@ -1,5 +1,5 @@
 // app/page.tsx
-import Stats from "./components/Stats"; // Fixed capitalisation casing
+import Stats from "./components/Stats"; 
 import Hero from "./components/Hero";
 import About from "./components/About";
 import Skills from "./components/Skills";
@@ -11,8 +11,9 @@ import Contact from "./components/Contact";
 
 export default function HomePage() {
   return (
-    <div className="py-16 space-y-12 max-w-4xl mx-auto">
-      {/* Clean layout loop hierarchy without ghost tags */}
+    /* Increased layout max-width restriction to allow content expansion, 
+       and reduced component stacking layout gaps down to space-y-6 */
+    <div className="py-8 space-y-6 max-w-6xl mx-auto w-full">
       <Hero />
       <About />
       <Skills />

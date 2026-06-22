@@ -10,7 +10,7 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-slate-900 bg-slate-950/80 backdrop-blur-md">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
         {/* Branding Logo */}
         <Link href="/" className="text-md font-bold text-white tracking-tight hover:text-blue-500 transition">
           KS<span className="text-blue-500">.</span>
