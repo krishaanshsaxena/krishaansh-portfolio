@@ -23,7 +23,7 @@ export const navItems = [
 export const socialItems = [
   { name: "GitHub", url: "https://github.com/krishaanshsaxena" },
   { name: "LinkedIn", url: "https://linkedin.com/in/krishaanshsaxena" },
-  { name: "Email", url: "mailto:your-email@example.com" }, // Swap with your real email
+ // { name: "Email", url: "mailto:your-email@example.com" }, // Swap with your real email
   { name: "Twitter", url: "https://x.com/krishaansh_s" },
 ]
 
