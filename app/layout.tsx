@@ -33,7 +33,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" data-scroll-behavior="smooth">
       <body className="bg-slate-950 text-slate-100 antialiased min-h-screen flex flex-col">
         {/* 2. Mount the sticky header here */}
         <Navbar />
