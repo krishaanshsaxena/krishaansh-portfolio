@@ -1,7 +1,7 @@
 // app/layout.tsx
 import { SITE_TITLE, SITE_DESCRIPTION } from "./components/constants";
-import Navbar from "./components/Navbar"; // 1. CRUCIAL: Make sure this line exists exactly like this!
-import Footer from "./components/Footer"; 
+import Navbar from "./components/Navbar"; 
+import Footer from "./components/Footer"; // 1. Import your new Footer
 import "./globals.css"; 
 
 export const metadata = {
@@ -35,13 +35,16 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      {/* min-h-screen, flex, and flex-col handle layout distribution securely */}
       <body className="bg-slate-950 text-slate-100 antialiased min-h-screen flex flex-col">
-        <Navbar /> {/* This will now compile cleanly since the import is declared above */}
+        <Navbar />
         
-        <main className="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-4 lg:px-4 pt-6 pb-20">
+        {/* flex-grow pushes the footer to the absolute bottom of thin pages */}
+        <main className="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-4 lg:px-4 pt-6 pb-12">
           {children}
         </main>
 
+        {/* 2. Mount the universal footer anchor */}
         <Footer />
       </body>
     </html>
