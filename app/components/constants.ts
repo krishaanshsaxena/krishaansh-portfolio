@@ -1,19 +1,16 @@
 // app/components/constants.ts
 
-// Global SEO & Identity
 export const SITE_OWNER = "Krishaansh Saxena"
 export const COPYRIGHT_YEAR = new Date().getFullYear()
 export const SITE_TITLE = "Krishaansh Saxena | AI/ML Engineer in Training"
 export const SITE_DESCRIPTION = "B.Tech CSE (AI & ML) student at KIIT University exploring AI, Machine Learning, Data Science, and Quantitative Finance."
 
-// Hero / Homepage Identity
 export const HERO = {
   name: "Krishaansh Saxena",
   tagline: "Building the future with Intelligence & Math.",
   bio: "B.Tech CSE Student specializing in Artificial Intelligence and Machine Learning at KIIT University.",
 }
 
-// Global Navigation Menu
 export const navItems = [
   { label: "Home", path: "/" },
   { label: "About", path: "/about" },
@@ -23,23 +20,20 @@ export const navItems = [
   { label: "Contact", path: "/contact" },
 ]
 
-// Professional External Outlets
 export const socialItems = [
   { name: "GitHub", url: "https://github.com/krishaanshsaxena" },
   { name: "LinkedIn", url: "https://linkedin.com/in/krishaanshsaxena" },
-  { name: "Email", url: "mailto:your-email@example.com" }, 
+  { name: "Email", url: "mailto:your-email@example.com" }, // Swap with your real email
   { name: "Twitter", url: "https://x.com/krishaansh_s" },
-
 ]
 
-// Project Catalog
 export const projects = [
   {
     id: "portfolio",
     title: "Personal Portfolio Website",
     description: "My personal slice of the internet built using Next.js, Tailwind CSS, and TypeScript.",
     tags: ["Next.js", "TypeScript", "Tailwind"],
-    link: "https://github.com/krishaansh-portfolio",
+    link: "https://github.com", // Fixed reference path
   },
   {
     id: "digital-garden",
@@ -71,7 +65,6 @@ export const projects = [
   },
 ]
 
-// Dynamic Blog Placeholders
 export const blogPosts = [
   { slug: "what-is-ml", title: "What is Machine Learning?", date: "Coming Soon", summary: "An intuitive introduction to training machines." },
   { slug: "stats-for-ai", title: "Statistics for AI", date: "Coming Soon", summary: "The core mathematical foundations required for modern AI." },
@@ -81,7 +74,6 @@ export const blogPosts = [
   { slug: "git-basics", title: "Git and GitHub Basics", date: "Coming Soon", summary: "Version control habits essential for every software engineer." },
 ]
 
-// Technical Core & Academic Breakdown
 export const skillGroups = [
   { category: "Languages", skills: ["Python", "TypeScript", "JavaScript", "C++", "SQL"] },
   { category: "Libraries & ML Frameworks", skills: ["Scikit-Learn", "NumPy", "Pandas", "Matplotlib"] },
@@ -89,7 +81,6 @@ export const skillGroups = [
   { category: "Interests & Focus Areas", skills: ["AI / ML", "Statistics", "Quantitative Finance", "Data Science"] },
 ]
 
-// Academic Timeline 
 export const timeline = [
   {
     institution: "KIIT University",
@@ -102,4 +93,4 @@ export const stats = [
   { value: "2+", label: "Years Learning" },
   { value: "5+", label: "Projects" },
   { value: "2029", label: "Graduation" },
-];
+]
