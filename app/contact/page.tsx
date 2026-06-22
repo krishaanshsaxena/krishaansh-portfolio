@@ -1,5 +1,5 @@
 // app/contact/page.tsx
-import { socialItems } from "@/app/components/constants";
+import { socialItems } from "../components/constants"; // Using direct relative path
 
 export const metadata = {
   title: "Contact",
@@ -17,7 +17,7 @@ export default function ContactPage() {
         </p>
       </header>
 
-      {/* This dynamically maps whatever is inside socialItems directly onto the UI */}
+      {/* Renders your live arrays explicitly */}
       <div className="mt-10 grid gap-4 grid-cols-1 sm:grid-cols-3 pt-6 border-t border-slate-900">
         {socialItems.map((item) => (
           <a
