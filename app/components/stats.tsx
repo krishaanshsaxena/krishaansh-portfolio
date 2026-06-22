@@ -3,7 +3,10 @@ import { stats } from "./constants";
 
 export default function Stats() {
   return (
-    <section className="py-10 border-t border-slate-900/60 last:border-b-0">
+    /* REMOVED 'border-t' and added 'border-b border-slate-900/60 last:border-b-0' 
+       to cleanly synchronize with the rest of your system components */
+    <section className="py-10 border-b border-slate-900/60 last:border-b-0">
+      
       {/* Signature Section Header */}
       <div className="space-y-1 mb-8">
         <h2 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">
