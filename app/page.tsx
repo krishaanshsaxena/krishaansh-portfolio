@@ -1,6 +1,6 @@
 // app/page.tsx
 import { HERO, socialItems } from "./components/constants";
-import Stats from "./components/Stats"; // Assuming Stats was mounted here in Step 2
+import Stats from "./components/stats";
 
 export default function HomePage() {
   return (

@@ -26,8 +26,8 @@ export const navItems = [
 // Professional External Outlets
 export const socialItems = [
   { name: "GitHub", url: "https://github.com/krishaanshsaxena" },
-  { name: "LinkedIn", url: "https://linkedin.com/in/krishaanshsaxena" }, // Ensure exact slug
-  { name: "Email", url: "mailto:your-email@example.com" }, // Replace with your operational inbox
+  { name: "LinkedIn", url: "https://linkedin.com/in/krishaanshsaxena" },
+  { name: "Email", url: "mailto:your-email@example.com" }, 
   { name: "Twitter", url: "https://x.com/krishaansh_s" },
 
 ]
