@@ -1,34 +1,19 @@
-const stats = [
-  {
-    value: "2+",
-    label: "Years Learning",
-  },
-
-  {
-    value: "5+",
-    label: "Projects",
-  },
-
-  {
-    value: "2029",
-    label: "Graduation",
-  },
-];
+// app/components/Stats.tsx
+import { stats } from "./constants";
 
 export default function Stats() {
   return (
-    <section className="py-24">
-      <div className="grid gap-8 md:grid-cols-3">
+    <section className="py-16 border-t border-slate-900">
+      <div className="grid gap-6 sm:grid-cols-3">
         {stats.map((stat) => (
           <div
             key={stat.label}
-            className="rounded-2xl border border-slate-800 p-10"
+            className="rounded-2xl border border-slate-800 bg-slate-950/50 p-8 text-center sm:text-left"
           >
-            <h2 className="text-5xl font-bold text-blue-500">
+            <h2 className="text-4xl sm:text-5xl font-extrabold text-blue-500 tracking-tight">
               {stat.value}
             </h2>
-
-            <p className="mt-4 text-slate-400">
+            <p className="mt-2 text-sm font-medium text-slate-400 uppercase tracking-wider">
               {stat.label}
             </p>
           </div>

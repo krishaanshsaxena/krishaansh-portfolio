@@ -1,32 +1,46 @@
-import type { Metadata } from "next";
-import SectionHeading from "../components/SectionHeading";
-import { blogPosts } from "../components/site-data";
+// app/blog/page.tsx
+import { blogPosts } from "@/app/components/constants";
 
-export const metadata: Metadata = {
+export const metadata = {
   title: "Blog | Krishaansh Saxena",
-  description:
-    "Future writing by Krishaansh Saxena on machine learning, statistics, finance and software fundamentals.",
 };
 
 export default function BlogPage() {
   return (
-    <div className="py-20 md:py-28">
-      <SectionHeading
-        eyebrow="Blog"
-        title="Notes and essays, prepared for future posts."
-        description="No fake articles yet. These placeholders reserve space for real writing as the learning library grows."
-      />
+    <div className="py-12 max-w-3xl mx-auto px-4">
+      <header className="max-w-2xl border-b border-slate-900 pb-8">
+        <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
+          Writing
+        </h1>
+        <p className="mt-4 text-slate-400 leading-relaxed">
+          Documenting concepts across machine learning engineering, computational statistics, options pricing math, and system architectures.
+        </p>
+      </header>
 
-      <div className="mt-12 divide-y divide-slate-800 rounded-lg border border-slate-800 bg-slate-900/35">
+      <div className="mt-12 space-y-10">
         {blogPosts.map((post) => (
-          <article
-            key={post}
-            className="flex flex-col gap-3 p-6 sm:flex-row sm:items-center sm:justify-between"
+          <article 
+            key={post.slug} 
+            className="group relative flex flex-col items-start rounded-2xl border border-slate-800/40 bg-slate-950/10 p-6 transition duration-200 hover:border-slate-800 hover:bg-slate-950/30"
           >
-            <h2 className="text-lg font-semibold text-slate-100">{post}</h2>
-            <span className="w-fit rounded-md border border-slate-800 px-2.5 py-1 text-xs font-medium text-slate-400">
-              Placeholder
-            </span>
+            <div className="flex items-center gap-3">
+              <span className="text-xs font-mono font-bold text-blue-500 uppercase tracking-widest">
+                {post.date}
+              </span>
+              {post.date.toLowerCase() === "coming soon" && (
+                <span className="rounded-full bg-slate-900 px-2 py-0.5 text-[10px] font-semibold text-slate-500 border border-slate-800 uppercase tracking-wider">
+                  In Queue
+                </span>
+              )}
+            </div>
+            
+            <h2 className="mt-3 text-xl font-bold tracking-tight text-white group-hover:text-blue-400 transition duration-200">
+              {post.title}
+            </h2>
+            
+            <p className="mt-3 text-sm text-slate-400 leading-relaxed">
+              {post.summary}
+            </p>
           </article>
         ))}
       </div>

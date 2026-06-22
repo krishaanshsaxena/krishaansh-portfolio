@@ -1,13 +1,16 @@
+// app/sitemap.ts
 import { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://yourdomain.com' // Replace with your actual domain
+  const baseUrl = 'https://krishaansh.com'
 
   const paths = [
     '',
     '/about',
     '/projects',
     '/blog',
+    '/resume',
+    '/contact',
   ]
 
   return paths.map((path) => ({
