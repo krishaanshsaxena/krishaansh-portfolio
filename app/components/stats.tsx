@@ -1,6 +1,6 @@
 // app/components/Stats.tsx
 import { stats } from "./constants";
-
+//1
 export default function Stats() {
   return (
     <section className="py-16 border-t border-slate-900">
