@@ -1,21 +1,32 @@
 // app/components/Stats.tsx
 import { stats } from "./constants";
-//1
+
 export default function Stats() {
   return (
-    <section className="py-16 border-t border-slate-900">
-      <div className="grid gap-6 sm:grid-cols-3">
+    <section className="py-10 border-t border-slate-900/60 last:border-b-0">
+      {/* Signature Section Header */}
+      <div className="space-y-1 mb-8">
+        <h2 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">
+          System Metrics
+        </h2>
+        <p className="text-xs font-mono font-bold text-blue-500 uppercase tracking-widest">
+          Telemetry & Operational Scale
+        </p>
+      </div>
+
+      {/* Synchronized Card Matrix Grid */}
+      <div className="grid gap-4 sm:grid-cols-3">
         {stats.map((stat) => (
           <div
             key={stat.label}
-            className="rounded-2xl border border-slate-800 bg-slate-950/50 p-8 text-center sm:text-left"
+            className="rounded-2xl border border-slate-900 bg-slate-950/30 p-6 text-center sm:text-left flex flex-col justify-between hover:border-slate-800 transition duration-200"
           >
-            <h2 className="text-4xl sm:text-5xl font-extrabold text-blue-500 tracking-tight">
-              {stat.value}
-            </h2>
-            <p className="mt-2 text-sm font-medium text-slate-400 uppercase tracking-wider">
+            <span className="text-xs font-mono font-bold text-slate-500 uppercase tracking-wider">
               {stat.label}
-            </p>
+            </span>
+            <h3 className="text-4xl sm:text-5xl font-black text-blue-500 tracking-tight mt-4">
+              {stat.value}
+            </h3>
           </div>
         ))}
       </div>
