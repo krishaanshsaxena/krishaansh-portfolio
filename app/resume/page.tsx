@@ -1,57 +1,55 @@
 // app/resume/page.tsx
 import { skillGroups, timeline } from "@/app/components/constants";
-import Link from "next/link";
 
 export const metadata = {
-  title: "Resume | Krishaansh Saxena",
+  title: "Resume",
 };
 
 export default function ResumePage() {
   return (
-    <div className="py-12 max-w-3xl mx-auto px-4 space-y-12">
-      
-      {/* Header Area */}
-      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-b border-slate-800 pb-6">
-        <div>
-          <h1 className="text-4xl font-bold tracking-tight text-white">Resume</h1>
-          <p className="text-slate-400 mt-1">Academic focus and technical engineering stack.</p>
+    <div className="py-10 space-y-12 max-w-6xl mx-auto w-full">
+      {/* Title block with actionable placeholder */}
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-b border-slate-900/60 pb-6">
+        <div className="space-y-1">
+          <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl">Profile Matrix</h1>
+          <p className="text-xs font-mono font-bold text-blue-500 uppercase tracking-widest mt-1">Verification Records</p>
         </div>
         <button 
           disabled 
-          className="rounded-xl bg-slate-900 border border-slate-800 px-4 py-2 text-sm font-semibold text-slate-500 cursor-not-allowed"
+          className="rounded-xl bg-slate-900 border border-slate-800 px-4 py-2 text-xs font-mono font-bold text-slate-500 cursor-not-allowed uppercase tracking-wider"
         >
-          PDF Copy Coming Soon
+          PDF Compiling Soon
         </button>
       </div>
 
-      {/* Education & Experience Timeline */}
-      <section className="space-y-4">
-        <h2 className="text-2xl font-bold text-blue-500 tracking-tight">Education</h2>
-        <div className="space-y-6 border-l-2 border-slate-800 pl-4 py-1">
+      {/* Education Segments */}
+      <div className="space-y-6">
+        <h2 className="text-xl font-bold tracking-tight text-white border-b border-slate-900 pb-2">Academic Enrolments</h2>
+        <div className="grid gap-6 md:grid-cols-2">
           {timeline.map((item, index) => (
-            <div key={index} className="relative">
-              <div className="absolute -left-[21px] top-1.5 h-2 w-2 rounded-full bg-blue-500 ring-4 ring-slate-950" />
-              <h3 className="text-xl font-bold text-white">{item.institution}</h3>
-              <p className="text-slate-300 font-medium text-sm mt-0.5">{item.degree}</p>
-              <p className="text-slate-500 text-xs mt-1 font-mono uppercase tracking-wider">{item.period}</p>
+            <div key={index} className="rounded-2xl border border-slate-900 bg-slate-950/20 p-6">
+              <h3 className="text-lg font-bold text-white">{item.institution}</h3>
+              <p className="text-sm text-slate-400 mt-1">{item.degree}</p>
+              <p className="text-[11px] font-mono text-slate-500 mt-4 uppercase tracking-wider bg-slate-900 py-1 px-2 rounded inline-block border border-slate-800/60">
+                {item.period}
+              </p>
             </div>
           ))}
         </div>
-      </section>
+      </div>
 
-      {/* Technical Skill Matrices */}
-      <section className="space-y-4">
-        <h2 className="text-2xl font-bold text-blue-500 tracking-tight">Skills & Capabilities</h2>
-        <div className="grid gap-6 sm:grid-cols-2">
+      {/* Skills Array Grids */}
+      <div className="space-y-6">
+        <h2 className="text-xl font-bold tracking-tight text-white border-b border-slate-900 pb-2">Technical Inventories</h2>
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {skillGroups.map((group) => (
-            <div key={group.category} className="rounded-xl border border-slate-800 bg-slate-950/20 p-5">
-              <h3 className="text-xs font-bold text-slate-400 uppercase tracking-widest">{group.category}</h3>
-              <div className="mt-4 flex flex-wrap gap-2">
+            <div key={group.category} className="rounded-2xl border border-slate-900 bg-slate-950/30 p-5">
+              <h3 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-4 border-b border-slate-900 pb-2">
+                {group.category}
+              </h3>
+              <div className="flex flex-wrap gap-1.5">
                 {group.skills.map((skill) => (
-                  <span 
-                    key={skill} 
-                    className="rounded-md bg-slate-900 px-2.5 py-1 text-xs font-medium text-slate-300 border border-slate-800"
-                  >
+                  <span key={skill} className="rounded-md bg-slate-900 px-2 py-1 text-xs text-slate-300 border border-slate-800/60 font-medium">
                     {skill}
                   </span>
                 ))}
@@ -59,24 +57,7 @@ export default function ResumePage() {
             </div>
           ))}
         </div>
-      </section>
-
-      {/* Cross-linking Action Block */}
-      <section className="rounded-2xl border border-blue-900/30 bg-blue-950/10 p-6 text-center sm:text-left sm:flex sm:items-center sm:justify-between sm:gap-6">
-        <div className="space-y-1">
-          <h3 className="text-lg font-bold text-white">Looking for live code implementations?</h3>
-          <p className="text-sm text-slate-400">Explore the exact architectures behind my academic learning models.</p>
-        </div>
-        <div className="mt-4 sm:mt-0 flex-shrink-0">
-          <Link 
-            href="/projects" 
-            className="inline-block rounded-xl bg-blue-600 px-4 py-2.5 text-sm font-semibold text-white hover:bg-blue-500 transition duration-200"
-          >
-            Explore Projects
-          </Link>
-        </div>
-      </section>
-
+      </div>
     </div>
   );
 }

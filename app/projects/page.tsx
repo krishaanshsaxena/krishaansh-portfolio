@@ -2,55 +2,65 @@
 import { projects } from "@/app/components/constants";
 
 export const metadata = {
-  title: "Projects | Krishaansh Saxena",
+  title: "Projects",
 };
 
 export default function ProjectsPage() {
   return (
-    <div className="py-12 max-w-4xl mx-auto px-4">
-      <header className="max-w-2xl">
-        <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
-          Projects
+    <div className="py-10 space-y-10 max-w-6xl mx-auto w-full">
+      {/* Dynamic Dashboard Title */}
+      <div className="space-y-1 border-b border-slate-900/60 pb-6">
+        <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl">
+          Systems Catalog
         </h1>
-        <p className="mt-4 text-slate-400">
-          An ongoing catalog of what I'm building across software engineering, mathematical modeling, and machine learning systems.
+        <p className="text-xs font-mono font-bold text-blue-500 uppercase tracking-widest mt-2">
+          Production Repositories & Operational Builds
         </p>
-      </header>
-      
-      <div className="mt-12 grid gap-6 sm:grid-cols-2">
+      </div>
+
+      {/* Complete Project Inventory Grid Layout */}
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {projects.map((project) => (
           <div 
             key={project.id} 
-            className="flex flex-col rounded-2xl border border-slate-800 bg-slate-950/40 p-6 hover:border-slate-700 transition duration-200"
+            className="flex flex-col rounded-2xl border border-slate-900 bg-slate-950/30 p-6 hover:border-slate-800 transition duration-200"
           >
-            <h2 className="text-xl font-bold text-white">
-              {project.title}
-            </h2>
-            <p className="mt-2 flex-grow text-sm text-slate-400 leading-relaxed">
-              {project.description}
-            </p>
+            <div className="flex-grow">
+              <h2 className="text-lg font-bold text-white tracking-tight">
+                {project.title}
+              </h2>
+              <p className="mt-2 text-sm text-slate-400 leading-relaxed">
+                {project.description}
+              </p>
+            </div>
             
-            <div className="mt-6 flex flex-wrap gap-2">
+            <div className="mt-6 flex flex-wrap gap-1.5">
               {project.tags.map((tag) => (
                 <span 
                   key={tag} 
-                  className="rounded-md bg-blue-950/50 px-2 py-1 text-xs font-medium text-blue-400 border border-blue-900/30"
+                  className="rounded-md bg-blue-950/30 px-2 py-0.5 text-[11px] font-medium text-blue-400 border border-blue-900/20"
                 >
                   {tag}
                 </span>
               ))}
             </div>
             
-            {project.link !== "#" && (
+            {project.link !== "#" ? (
               <div className="mt-4 pt-4 border-t border-slate-900/60">
                 <a 
                   href={project.link} 
                   target="_blank" 
                   rel="noreferrer" 
-                  className="text-sm font-medium text-blue-400 hover:text-blue-300 transition inline-flex items-center"
+                  className="text-xs font-semibold text-blue-400 hover:text-blue-300 transition inline-flex items-center gap-1"
                 >
-                  View Source File &rarr;
+                  Explore Codebase &rarr;
                 </a>
+              </div>
+            ) : (
+              <div className="mt-4 pt-4 border-t border-slate-900/40 flex items-center justify-between">
+                <span className="text-[10px] font-mono font-semibold text-amber-500/80 uppercase tracking-wider bg-amber-950/20 px-2 py-0.5 rounded border border-amber-900/20">
+                  R&D In Progress
+                </span>
               </div>
             )}
           </div>
