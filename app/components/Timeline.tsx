@@ -18,7 +18,7 @@ export default function Timeline() {
               {item.year}
             </time>
             <p className="mt-2 text-xl font-medium text-slate-100">
-              {item.title
+              {item.title}
             </p>
           </li>
         ))}
