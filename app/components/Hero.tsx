@@ -1,51 +1,19 @@
-import { HERO } from "./site-data";
-
 export default function Hero() {
   return (
-    <section className="py-32">
-      <p className="mb-6 font-medium text-blue-500">
-        {HERO.subtitle}
-      </p>
-
-      <h1 className="max-w-5xl text-5xl font-bold tracking-tight md:text-7xl">
-        {HERO.title}
+    <section className="py-16 md:py-24 space-y-4 max-w-3xl">
+      <span className="inline-flex items-center gap-2 rounded-full bg-blue-950/40 px-3 py-1 text-xs font-medium text-blue-400 border border-blue-900/30">
+        <span className="h-1.5 w-1.5 rounded-full bg-blue-500 animate-pulse" />
+        Open for Research & Core Engineering Roles
+      </span>
+      <h1 className="text-4xl sm:text-6xl font-extrabold text-white tracking-tight leading-none">
+        Krishaansh Saxena
       </h1>
-
-      <p className="mt-10 max-w-3xl text-lg leading-8 text-slate-400">
-        {HERO.description}
+      <p className="text-lg sm:text-2xl font-semibold text-slate-300 tracking-tight">
+        Building the future with <span className="text-blue-500">Intelligence & Math.</span>
       </p>
-
-      <div className="mt-12 flex flex-wrap gap-4">
-        <a
-          href="/projects"
-          className="rounded-xl bg-blue-600 px-6 py-3 hover:bg-blue-500"
-        >
-          View Projects
-        </a>
-
-        <a
-          href="/resume"
-          className="rounded-xl border border-slate-800 px-6 py-3 hover:bg-slate-900"
-        >
-          Resume
-        </a>
-
-        <a
-          href="https://github.com/krishaanshsaxena"
-          target="_blank"
-          className="rounded-xl border border-slate-800 px-6 py-3 hover:bg-slate-900"
-        >
-          GitHub
-        </a>
-
-        <a
-          href="https://www.linkedin.com/in/krishaansh-saxena/"
-          target="_blank"
-          className="rounded-xl border border-slate-800 px-6 py-3 hover:bg-slate-900"
-        >
-          LinkedIn
-        </a>
-      </div>
+      <p className="text-sm sm:text-base text-slate-400 max-w-2xl leading-relaxed">
+        B.Tech CSE Student specializing in Artificial Intelligence and Machine Learning at KIIT University. Exploring data engineering life cycles, mathematical modeling pipelines, and quantitative workflows.
+      </p>
     </section>
   );
 }

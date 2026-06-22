@@ -39,7 +39,7 @@ export default function RootLayout({
         <Navbar />
         
         {/* Main Content with responsive side-gutters */}
-        <main className="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-4 lg:px-4">
+    <main className="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-4 lg:px-4 pt-6">
 
          {children}
         </main>

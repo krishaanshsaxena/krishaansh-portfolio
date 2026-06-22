@@ -10,26 +10,24 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-slate-900 bg-slate-950/80 backdrop-blur-md">
-      {/* max-w-6xl perfectly matches your home page alignment layout */}
-      <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between gap-4">
-        
-        {/* Branding Logo - Flex-shrink prevents it from collapsing on small screens */}
-        <Link href="/" className="text-md font-bold text-white tracking-tight hover:text-blue-400 transition shrink-0">
+      <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+        {/* Branding Logo */}
+        <Link href="/" className="text-md font-bold text-white tracking-tight hover:text-blue-500 transition">
           KS<span className="text-blue-500">.</span>
         </Link>
 
-        {/* Navigation Links - overflow-x-auto allows clean horizontal swipe scrolling on mobile */}
-        <nav className="flex items-center gap-1 sm:gap-2 overflow-x-auto no-scrollbar py-1">
+        {/* Navigation Links */}
+        <nav className="flex items-center gap-1 sm:gap-2">
           {navItems.map((item) => {
             const isActive = pathname === item.path;
             return (
               <Link
                 key={item.path}
                 href={item.path}
-                className={`rounded-xl px-2.5 py-1.5 text-xs font-semibold tracking-wide transition duration-200 whitespace-nowrap ${
+                className={`rounded-xl px-3 py-1.5 text-xs font-semibold tracking-wide transition duration-200 ${
                   isActive
                     ? "bg-blue-600/10 text-blue-400 border border-blue-500/20"
-                    : "text-slate-400 hover:text-white hover:bg-slate-900/40"
+                    : "text-slate-400 hover:text-white hover:bg-slate-900/50"
                 }`}
               >
                 {item.label}

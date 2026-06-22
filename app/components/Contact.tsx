@@ -1,56 +1,39 @@
-import SectionHeading from "./SectionHeading";
-
-const contactLinks = [
-  {
-    label: "GitHub",
-    value: "github.com/krishaanshsaxena",
-    href: "https://github.com/krishaanshsaxena",
-  },
-  {
-    label: "LinkedIn",
-    value: "linkedin.com/in/krishaansh-saxena",
-    href: "https://www.linkedin.com/in/krishaansh-saxena/",
-  },
-  {
-    label: "Email",
-    value: "Email address coming soon",
-    href: null,
-  },
-];
+// app/components/Contact.tsx
+import { socialItems } from "./constants";
 
 export default function Contact() {
   return (
-    <section id="contact" className="py-24">
-      <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr]">
-        <SectionHeading
-          eyebrow="Contact"
-          title="Simple ways to connect."
-          description="The best places to follow the work right now are GitHub and LinkedIn. Email integration is reserved for a future update."
-        />
+    <section className="py-10 border-b border-slate-900/60 last:border-b-0">
+      <div className="space-y-1 mb-8">
+        <h2 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">
+          Get In Touch
+        </h2>
+        <p className="text-xs font-mono font-bold text-blue-500 uppercase tracking-widest">
+          Communication Endpoints
+        </p>
+      </div>
 
-        <div className="divide-y divide-slate-800 rounded-lg border border-slate-800 bg-slate-900/35">
-          {contactLinks.map((link) => (
-            <div
-              key={link.label}
-              className="flex flex-col gap-2 p-6 sm:flex-row sm:items-center sm:justify-between"
+      <div className="max-w-2xl">
+        <p className="text-sm sm:text-base text-slate-400 leading-relaxed">
+          Whether you want to discuss advanced data pipelines, quantitative engineering models, or machine learning implementations—feel free to reach out.
+        </p>
+        
+        <div className="mt-8 grid gap-4 grid-cols-2 sm:grid-cols-4">
+          {socialItems.map((item) => (
+            <a
+              key={item.name}
+              href={item.url}
+              target="_blank"
+              rel="noreferrer"
+              className="flex flex-col items-center justify-center rounded-xl border border-slate-900 bg-slate-950/40 p-4 hover:border-slate-800 hover:bg-slate-950/80 transition duration-200 group"
             >
-              <div>
-                <p className="text-sm font-medium text-slate-400">
-                  {link.label}
-                </p>
-                <p className="mt-1 text-slate-100">{link.value}</p>
-              </div>
-              {link.href ? (
-                <a
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sm font-semibold text-blue-400 hover:text-blue-300"
-                >
-                  Visit
-                </a>
-              ) : null}
-            </div>
+              <span className="text-sm font-semibold text-white group-hover:text-blue-400 transition duration-200">
+                {item.name}
+              </span>
+              <span className="text-[10px] font-mono text-slate-500 mt-1 tracking-wider uppercase">
+                Connect
+              </span>
+            </a>
           ))}
         </div>
       </div>
