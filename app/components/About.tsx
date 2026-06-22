@@ -1,51 +1,49 @@
-import SectionHeading from "./SectionHeading";
-
-const interests = [
-  "Artificial Intelligence",
-  "Machine Learning",
-  "Statistics",
-  "Data Science",
-  "Quantitative Finance",
-  "Software Engineering",
-];
-
+// app/components/About.tsx
 export default function About() {
   return (
-    <section id="about" className="py-24">
-      <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
-        <SectionHeading
-          eyebrow="About"
-          title="Building a foundation in AI and software."
-          description="Krishaansh is building a long-term foundation in computer science, mathematics and practical engineering."
-        />
+    <section className="py-10 border-b border-slate-900/60">
+      {/* Unified Section Header */}
+      <div className="space-y-1 mb-8">
+        <h2 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">
+          About Me
+        </h2>
+        <p className="text-xs font-mono font-bold text-blue-500 uppercase tracking-widest">
+          Background & System Philosophy
+        </p>
+      </div>
 
-        <div className="space-y-6 text-base leading-8 text-slate-400 md:text-lg">
+      {/* Main Structural Layout Grid */}
+      <div className="grid gap-8 md:grid-cols-3 items-start">
+        
+        {/* Left Columns (2/3 width on desktop) for your narrative */}
+        <div className="md:col-span-2 space-y-4 text-sm sm:text-base text-slate-400 leading-relaxed">
           <p>
-            I am a B.Tech Computer Science Engineering student specializing in Artificial Intelligence and Machine Learning at KIIT University. My interests span AI, machine learning, statistics, quantitative finance and software engineering. I enjoy building practical systems and learning in public.
+            Hi, I'm <strong className="text-white">Krishaansh Saxena</strong>. I am currently pursuing a B.Tech in Computer Science & Engineering with a core focus on Artificial Intelligence and Machine Learning at <span className="text-blue-400 font-medium">KIIT University</span>.
           </p>
           <p>
-            I am especially interested in the overlap between AI, data science
-            and quantitative finance. The goal is not to rush toward inflated
-            claims, but to keep building useful projects, document the learning
-            process and improve through consistent practice.
+            I treat software engineering and predictive modeling as a deliberate, continuous craft. My technical roadmap centers heavily on building rock-solid foundations across advanced statistics, machine learning lifecycles, and quantitative computational mathematics.
           </p>
           <p>
-            This website is designed to grow with that journey: a home for
-            projects, notes, resume material and public learning over the next
-            several years.
+            Outside of university coursework, I spend my time exploring financial derivatives architectures, building automation scripts, and designing robust web environments to host data pipelines.
           </p>
+        </div>
 
-          <div className="grid gap-3 pt-4 sm:grid-cols-2">
-            {interests.map((interest) => (
-              <div
-                key={interest}
-                className="border-l border-blue-500/70 py-1 pl-4 text-sm font-medium text-slate-200"
-              >
-                {interest}
-              </div>
-            ))}
+        {/* Right Column (1/3 width on desktop) for core engineering values */}
+        <div className="rounded-2xl border border-slate-900 bg-slate-950/30 p-5 space-y-4">
+          <h3 className="text-xs font-bold text-slate-400 uppercase tracking-widest border-b border-slate-900 pb-2">
+            Development Manifesto
+          </h3>
+          <p className="text-xs text-slate-400 leading-relaxed">
+            The ultimate vision for my engineering stack is simple: create highly efficient, math-backed architectures that convert complex raw data arrays into functional operational realities.
+          </p>
+          <div className="pt-2">
+            <span className="inline-flex items-center gap-2 rounded-md bg-blue-950/40 px-2 py-1 text-[11px] font-mono text-blue-400 border border-blue-900/30 w-full justify-center">
+              <span className="h-1.5 w-1.5 rounded-full bg-blue-500 animate-pulse" />
+              Focus: Math, ML, & Systems
+            </span>
           </div>
         </div>
+
       </div>
     </section>
   );
