@@ -21,14 +21,18 @@ export const metadata = {
     locale: "en_US",
     type: "website",
   },
+    // ... your other metadata config
   twitter: {
     card: "summary_large_image",
     title: SITE_TITLE,
     description: SITE_DESCRIPTION,
+    creator: "@krishaansh_s", // Adds your Twitter/X handle to social share cards
   },
 };
 
 // 2. CORRECT: This must be the EXPORT DEFAULT and must return valid JSX
+
+// app/layout.tsx
 export default function RootLayout({
   children,
 }: {
@@ -37,9 +41,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="bg-slate-950 text-slate-100 antialiased">
-        {/* Your navigation component would go here */}
-        <main>{children}</main>
+        {/* max-w-7xl limits ultra-wide screens, mx-auto centers it, px-4/sm:px-6/lg:px-8 adds fluid side margins */}
+        <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {children}
+        </main>
       </body>
     </html>
   );
 }
+
