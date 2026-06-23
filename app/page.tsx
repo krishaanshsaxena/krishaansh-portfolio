@@ -9,8 +9,6 @@ import FutureProjects from "./components/FutureProjects";
 import Contact from "./components/Contact";
 import Stats from "./components/Stats"; // Ensures clean capitalized module resolution
 
-import Footer from "./components/Footer"; // Ensures clean capitalized module resolution
-
 export default function HomePage() {
   return (
     <div className="py-8 space-y-6 max-w-6xl mx-auto w-full">
