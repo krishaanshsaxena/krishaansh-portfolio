@@ -24,7 +24,7 @@ export default function FutureProjects() {
             key={item.id}
             className="flex flex-col rounded-2xl border border-slate-900 bg-slate-950/10 p-6 hover:border-slate-800 transition duration-200"
           >
-            <div className="flex-grow">
+            <div className="grow">
               <h3 className="text-base font-bold text-slate-200 tracking-tight">
                 {item.title}
               </h3>

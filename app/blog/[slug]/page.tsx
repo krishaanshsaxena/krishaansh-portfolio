@@ -1,17 +1,24 @@
 // app/blog/[slug]/page.tsx
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { getPostData } from "@/app/utils/mdParser";
+import { getPostData, getSortedPostsData } from "@/app/utils/mdParser";
 
-// Standardizing interface properties for Next.js 15 compatibility
 interface ParamProps {
   params: Promise<{
     slug: string;
   }>;
 }
 
+// 1. CRUCIAL FOR VERCEL: Forces Next.js to scan and compile markdown routes during build
+export async function generateStaticParams() {
+  const posts = getSortedPostsData();
+  return posts.map((post) => ({
+    slug: post.slug,
+  }));
+}
+
 export async function generateMetadata({ params }: ParamProps) {
-  const resolvedParams = await params; // Explicitly unwrap parameters
+  const resolvedParams = await params;
   const post = getPostData(resolvedParams.slug);
   return {
     title: post ? post.title : "Article",
@@ -19,7 +26,7 @@ export async function generateMetadata({ params }: ParamProps) {
 }
 
 export default async function BlogPostDetail({ params }: ParamProps) {
-  const resolvedParams = await params; // Explicitly unwrap parameters ahead of execution
+  const resolvedParams = await params;
   const post = getPostData(resolvedParams.slug);
 
   if (!post) {
