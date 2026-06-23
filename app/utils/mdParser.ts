@@ -3,7 +3,8 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 
-const contentDirectory = path.join(process.cwd(), 'content');
+// Enforces tracking inside the public static asset sandbox tree
+const contentDirectory = path.join(process.cwd(), 'public', 'content');
 
 export interface BlogPostData {
   slug: string;
@@ -13,9 +14,7 @@ export interface BlogPostData {
   content: string;
 }
 
-// 1. Fetches metadata arrays for listing posts on your main blog feed
 export function getSortedPostsData(): Omit<BlogPostData, 'content'>[] {
-  // If the directory doesn't exist yet, return a blank array to prevent build crashes
   if (!fs.existsSync(contentDirectory)) return [];
 
   const fileNames = fs.readdirSync(contentDirectory);
@@ -38,7 +37,6 @@ export function getSortedPostsData(): Omit<BlogPostData, 'content'>[] {
   return allPostsData;
 }
 
-// 2. Fetches the full individual post body for a specific slug page view
 export function getPostData(slug: string): BlogPostData | null {
   try {
     const fullPath = path.join(contentDirectory, `${slug}.md`);

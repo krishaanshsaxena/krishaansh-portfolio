@@ -3,24 +3,25 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { getPostData } from "@/app/utils/mdParser";
 
+// Standardizing interface properties for Next.js 15 compatibility
 interface ParamProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
-// Generates correct custom page title metrics based on whatever markdown post is loaded
 export async function generateMetadata({ params }: ParamProps) {
-  const post = getPostData(params.slug);
+  const resolvedParams = await params; // Explicitly unwrap parameters
+  const post = getPostData(resolvedParams.slug);
   return {
     title: post ? post.title : "Article",
   };
 }
 
-export default function BlogPostDetail({ params }: ParamProps) {
-  const post = getPostData(params.slug);
+export default async function BlogPostDetail({ params }: ParamProps) {
+  const resolvedParams = await params; // Explicitly unwrap parameters ahead of execution
+  const post = getPostData(resolvedParams.slug);
 
-  // Throws standard custom 404 handler page if slug path file doesn't exist
   if (!post) {
     notFound();
   }
@@ -46,7 +47,6 @@ export default function BlogPostDetail({ params }: ParamProps) {
         </p>
       </header>
 
-      {/* Renders the plain text body layout with styling margins applied */}
       <article className="text-slate-300 space-y-4 text-sm sm:text-base leading-relaxed whitespace-pre-wrap font-sans">
         {post.content}
       </article>
