@@ -13,7 +13,7 @@ export default function BollingerWidget() {
   useEffect(() => {
     const generatedPrices = Array.from({ length: 30 }, (_, idx) => 
       100 + Math.sin(idx / 5) * 10 + Math.random() * 5
-    );
+); );
     setPrices(generatedPrices);
   }, []);
 
