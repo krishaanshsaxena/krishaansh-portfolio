@@ -3,18 +3,18 @@
 @tailwind components;
 @tailwind utilities;
 
-/* 1. Global Core Document Reset */
-html.dark {
+/* 1. Safe, non-breaking root theme adjustments */
+html, body {
   background-color: #020617; /* slate-950 */
   color: #f8fafc; /* slate-50 */
 }
 
-html.light {
-  background-color: #ffffff;
-  color: #0f172a; /* slate-900 */
+html.light, html.light body {
+  background-color: #ffffff !important;
+  color: #0f172a !important; /* slate-900 */
 }
 
-/* 2. Utility helper to keep mobile navigation menus responsive */
+/* 2. Scrollbar utility helper */
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
