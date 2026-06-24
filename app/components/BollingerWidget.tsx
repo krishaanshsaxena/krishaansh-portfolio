@@ -5,7 +5,9 @@ import { useState } from "react";
 
 export default function BollingerWidget() {
   // Baseline simulated stock price dataset representing a trading timeline regime
-  const initialPrices =;
+  const initialPrices = Array.from({ length: 30 }, (_, idx) => 
+    100 + Math.sin(idx / 5) * 10 + Math.random() * 5
+  );
   const [windowSize] = useState<number>(5); // Scaled window for real-time visualization context
   const [multiplier, setMultiplier] = useState<number>(2.0);
 
