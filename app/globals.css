@@ -3,34 +3,18 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Core Dark Mode Defaults */
+/* 1. Global Core Document Reset */
 html.dark {
   background-color: #020617; /* slate-950 */
   color: #f8fafc; /* slate-50 */
 }
 
-/* Core Light Mode Swaps */
 html.light {
   background-color: #ffffff;
   color: #0f172a; /* slate-900 */
 }
 
-html.light .text-white {
-  color: #0f172a !important; /* Converts prominent headings to clean dark ink slate */
-}
-
-html.light bg-slate-950\/30,
-html.light .bg-slate-950\/40,
-html.light .bg-slate-950\/20 {
-  background-color: #f8fafc !important; /* Converts dashboard cards to clean slate-50 blocks */
-}
-
-html.light .border-slate-900,
-html.light .border-slate-800 {
-  border-color: #e2e8f0 !important; /* Converts borders to light slate-200 lines */
-}
-
-/* Hide standard scrollbars across mobile navigation arrays */
+/* 2. Utility helper to keep mobile navigation menus responsive */
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
