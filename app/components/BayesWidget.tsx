@@ -4,23 +4,15 @@
 import { useState, useEffect } from "react";
 
 export default function BayesWidget() {
-  // P(A) = Prior Probability of an event occurring (e.g., Email is Spam)
   const [priorA, setPriorA] = useState<number>(0.3);
-  // P(B|A) = Likelihood of feature given event is True (e.g., Contains keyword "money" given it IS Spam)
   const [likelihoodBA, setLikelihoodBA] = useState<number>(0.9);
-  // P(B|not A) = False Positive Rate (e.g., Contains keyword "money" given it is NOT Spam)
   const [likelihoodBNotA, setLikelihoodBNotA] = useState<number>(0.2);
-  
-  // P(A|B) = Posterior Probability to be computed dynamically via Bayes' Rule
   const [posterior, setPosterior] = useState<number>(0);
 
   useEffect(() => {
-    // 1. Calculate P(not A)
     const priorNotA = 1 - priorA;
-    // 2. Compute Marginal Probability P(B) using the Total Probability Theorem
     const marginalB = (likelihoodBA * priorA) + (likelihoodBNotA * priorNotA);
     
-    // 3. Apply Bayes' Theorem formula: P(A|B) = [P(B|A) * P(A)] / P(B)
     if (marginalB === 0) {
       setPosterior(0);
     } else {
@@ -31,7 +23,6 @@ export default function BayesWidget() {
 
   return (
     <section className="py-10 border-b border-slate-900/60 last:border-b-0">
-      {/* Signature Section Header */}
       <div className="space-y-1 mb-8">
         <h2 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">
           Mathematical Simulator
@@ -42,13 +33,11 @@ export default function BayesWidget() {
       </div>
 
       <div className="grid gap-6 lg:grid-cols-3 items-start">
-        {/* Left Side: Controls Sliders Container (2/3 width) */}
         <div className="lg:col-span-2 space-y-6 rounded-2xl border border-slate-900 bg-slate-950/20 p-6">
           <h3 className="text-sm font-bold text-slate-300 uppercase tracking-wider border-b border-slate-900 pb-3">
             Hyperparameter Input Nodes
           </h3>
 
-          {/* Slider 1: Prior P(A) */}
           <div className="space-y-2">
             <div className="flex justify-between text-xs font-mono">
               <span className="text-slate-400">Prior Probability P(Event A)</span>
@@ -65,7 +54,6 @@ export default function BayesWidget() {
             />
           </div>
 
-          {/* Slider 2: Likelihood P(B|A) */}
           <div className="space-y-2">
             <div className="flex justify-between text-xs font-mono">
               <span className="text-slate-400">True Positive Likelihood P(Feature B | Event A)</span>
@@ -82,7 +70,6 @@ export default function BayesWidget() {
             />
           </div>
 
-          {/* Slider 3: False Positive P(B|Not A) */}
           <div className="space-y-2">
             <div className="flex justify-between text-xs font-mono">
               <span className="text-slate-400">False Positive Likelihood P(Feature B | Not Event A)</span>
@@ -100,7 +87,6 @@ export default function BayesWidget() {
           </div>
         </div>
 
-        {/* Right Side: Visual Output Computation Matrix (1/3 width) */}
         <div className="rounded-2xl border border-slate-900 bg-slate-950/40 p-6 flex flex-col justify-between h-full space-y-6">
           <div className="space-y-3">
             <h3 className="text-xs font-bold text-slate-400 uppercase tracking-widest border-b border-slate-900 pb-2">

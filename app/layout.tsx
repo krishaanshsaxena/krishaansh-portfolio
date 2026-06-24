@@ -1,6 +1,6 @@
 // app/layout.tsx
 import { SITE_TITLE, SITE_DESCRIPTION } from "./components/constants";
-import Navbar from "./components/Navbar"; // 1. CRUCIAL: Make sure this line exists exactly like this!
+import Navbar from "./components/Navbar"; 
 import Footer from "./components/Footer"; 
 import "./globals.css"; 
 
@@ -34,9 +34,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    // Added data-scroll-behavior="smooth" to eliminate the Next.js router warning block
+    <html lang="en" data-scroll-behavior="smooth">
       <body className="bg-slate-950 text-slate-100 antialiased min-h-screen flex flex-col">
-        <Navbar /> {/* This will now compile cleanly since the import is declared above */}
+        <Navbar />
         
         <main className="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-4 lg:px-4 pt-6 pb-20">
           {children}

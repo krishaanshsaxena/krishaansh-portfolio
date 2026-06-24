@@ -1,3 +1,4 @@
+// app/components/Skills.tsx
 import { skillGroups } from "./constants";
 
 export default function Skills() {
