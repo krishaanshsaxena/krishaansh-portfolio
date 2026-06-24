@@ -4,6 +4,7 @@ import About from "./components/About";
 import Skills from "./components/Skills";
 import Timeline from "./components/Timeline";
 import BayesWidget from "./components/BayesWidget"; 
+import BlackScholesWidget from "./components/BlackScholesWidget"; // 1. Import Black-Scholes
 import ProjectsPreview from "./components/ProjectsPreview";
 import Education from "./components/Education";
 import FutureProjects from "./components/FutureProjects";
@@ -18,6 +19,8 @@ export default function HomePage() {
       <Skills />
       <Timeline />
       <BayesWidget /> 
+      {/* 2. Mount Quantitative Derivatives Engine right here */}
+      <BlackScholesWidget /> 
       <ProjectsPreview />
       <Education />
       <FutureProjects />
