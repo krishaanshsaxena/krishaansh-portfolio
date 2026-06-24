@@ -1,7 +1,7 @@
 // app/blog/[slug]/page.tsx
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { LIVE_BLOG_CONTENT } from "@/app/components/constants";
+import { getPostData, getSortedPostsData } from "@/app/utils/mdParser";
 
 interface ParamProps {
   params: Promise<{
@@ -9,16 +9,17 @@ interface ParamProps {
   }>;
 }
 
-// Pre-compiles the available live routes at build time
+// 1. CRUCIAL FOR VERCEL: Forces Next.js to scan and compile markdown routes during build
 export async function generateStaticParams() {
-  return Object.keys(LIVE_BLOG_CONTENT).map((slug) => ({
-    slug: slug,
+  const posts = getSortedPostsData();
+  return posts.map((post) => ({
+    slug: post.slug,
   }));
 }
 
 export async function generateMetadata({ params }: ParamProps) {
   const resolvedParams = await params;
-  const post = LIVE_BLOG_CONTENT[resolvedParams.slug];
+  const post = getPostData(resolvedParams.slug);
   return {
     title: post ? post.title : "Article",
   };
@@ -26,9 +27,8 @@ export async function generateMetadata({ params }: ParamProps) {
 
 export default async function BlogPostDetail({ params }: ParamProps) {
   const resolvedParams = await params;
-  const post = LIVE_BLOG_CONTENT[resolvedParams.slug];
+  const post = getPostData(resolvedParams.slug);
 
-  // Instantly fires your custom 404 handler if the slug isn't in memory
   if (!post) {
     notFound();
   }
@@ -54,7 +54,6 @@ export default async function BlogPostDetail({ params }: ParamProps) {
         </p>
       </header>
 
-      {/* Renders text perfectly with markdown matching line breaks preserved */}
       <article className="text-slate-300 space-y-4 text-sm sm:text-base leading-relaxed whitespace-pre-wrap font-sans">
         {post.content}
       </article>
