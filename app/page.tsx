@@ -3,12 +3,12 @@ import Hero from "./components/Hero";
 import About from "./components/About";
 import Skills from "./components/Skills";
 import Timeline from "./components/Timeline";
-import BayesWidget from "./components/BayesWidget";
+import BayesWidget from "./components/BayesWidget"; // 1. Import the new Bayes simulator
 import ProjectsPreview from "./components/ProjectsPreview";
 import Education from "./components/Education";
 import FutureProjects from "./components/FutureProjects";
 import Contact from "./components/Contact";
-import Stats from "./components/Stats"; // Ensures clean capitalized module resolution
+import Stats from "./components/Stats";
 
 export default function HomePage() {
   return (
@@ -17,6 +17,8 @@ export default function HomePage() {
       <About />
       <Skills />
       <Timeline />
+      {/* 2. Mount the math computational simulator element right here */}
+      <BayesWidget /> 
       <ProjectsPreview />
       <Education />
       <FutureProjects />
