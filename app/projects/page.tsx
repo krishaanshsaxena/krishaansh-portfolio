@@ -7,7 +7,7 @@ export const metadata = {
 
 export default function ProjectsPage() {
   return (
-    <div className="py-10 space-y-10 max-w-6xl mx-auto w-full">
+    <div className="py-10 space-y-10  w-full">
       {/* Dynamic Dashboard Title */}
       <div className="space-y-1 border-b border-slate-900/60 pb-6">
         <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl">

@@ -7,7 +7,7 @@ export const metadata = {
 
 export default function ResumePage() {
   return (
-    <div className="py-10 space-y-12 max-w-6xl mx-auto w-full">
+    <div className="py-10 space-y-12 w-full">
       {/* Title block with actionable placeholder */}
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-b border-slate-900/60 pb-6">
         <div className="space-y-1">

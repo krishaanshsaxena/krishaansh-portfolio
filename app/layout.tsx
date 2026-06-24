@@ -34,12 +34,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    // Added data-scroll-behavior="smooth" to eliminate the Next.js router warning block
     <html lang="en" data-scroll-behavior="smooth">
       <body className="bg-slate-950 text-slate-100 antialiased min-h-screen flex flex-col">
         <Navbar />
         
-        <main className="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-4 lg:px-4 pt-6 pb-20">
+        {/* FIXED: Changed from max-w-7xl to max-w-6xl to match your page grids perfectly */}
+        <main className="flex-grow max-w-6xl w-full mx-auto px-4 sm:px-4 lg:px-4 pt-6 pb-20">
           {children}
         </main>
 
