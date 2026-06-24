@@ -20,14 +20,14 @@ export default function HomePage() {
       <Skills />
       <Timeline />
     
-    {/*  
+    
       <BayesWidget /> 
-      <BlackScholesWidget />  
-    */}
+       <BlackScholesWidget /> 
+    
 
       {/* 2. Mount Time-Series Volatility Indicator Chart */}
      
-     {/* <BollingerWidget /> */}
+       <BollingerWidget />
       
       <ProjectsPreview />
       <Education />
