@@ -1,9 +1,7 @@
 /* app/globals.css */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss"; /* CRUCIAL: This triggers the Tailwind v4 compilation engine */
 
-/* 1. Safe, non-breaking root theme adjustments */
+/* 1. Safe, non-breaking root theme variables */
 html, body {
   background-color: #020617; /* slate-950 */
   color: #f8fafc; /* slate-50 */
