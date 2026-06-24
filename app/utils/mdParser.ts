@@ -3,7 +3,6 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 
-// Enforces absolute node tracing during Vercel compile phases
 const contentDirectory = path.join(process.cwd(), 'public/content');
 
 export interface BlogPostData {
@@ -42,7 +41,7 @@ export function getSortedPostsData(): Omit<BlogPostData, 'content'>[] {
 
 export function getPostData(slug: string): BlogPostData | null {
   try {
-    const safeSlug = path.basename(slug); // Sanitise against traversal attacks
+    const safeSlug = path.basename(slug); 
     const fullPath = path.join(contentDirectory, `${safeSlug}.md`);
     
     if (!fs.existsSync(fullPath)) return null;
@@ -59,5 +58,18 @@ export function getPostData(slug: string): BlogPostData | null {
     };
   } catch {
     return null;
+  }
+}
+
+// ADD THIS NEW HELPER FUNCTION:
+export function getAllPostSlugs(): string[] {
+  try {
+    if (!fs.existsSync(contentDirectory)) return [];
+    const fileNames = fs.readdirSync(contentDirectory);
+    return fileNames
+      .filter((fileName) => fileName.endsWith('.md'))
+      .map((fileName) => fileName.replace(/\.md$/, ''));
+  } catch {
+    return [];
   }
 }

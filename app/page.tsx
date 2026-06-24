@@ -3,6 +3,7 @@ import Hero from "./components/Hero";
 import About from "./components/About";
 import Skills from "./components/Skills";
 import Timeline from "./components/Timeline";
+import BayesWidget from "./components/BayesWidget";
 import ProjectsPreview from "./components/ProjectsPreview";
 import Education from "./components/Education";
 import FutureProjects from "./components/FutureProjects";
